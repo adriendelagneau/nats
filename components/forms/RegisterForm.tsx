@@ -1,9 +1,8 @@
 "use client"
 
 import { findUserByEmail, registerWithCredential } from '@/actions/authActions';
-import { registerSchema } from '@/lib/zod/schema';
-
-import { TRegisterSchema } from '@/types';
+import { signUpSchema } from '@/lib/zod/schema';
+import { TSignUpSchema } from '@/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -16,11 +15,11 @@ const RegisterForm = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-  } = useForm<TRegisterSchema>({
-    resolver: zodResolver(registerSchema),
+  } = useForm<TSignUpSchema>({
+    resolver: zodResolver(signUpSchema),
   });
 
-  const onSubmit: SubmitHandler<TRegisterSchema> = async data => {
+  const onSubmit: SubmitHandler<TSignUpSchema> = async data => {
     // TODO: submit to server
     // ...
     const res = await findUserByEmail(data.email)
