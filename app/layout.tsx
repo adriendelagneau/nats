@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Libre_Baskerville, Limelight } from 'next/font/google'
 import "./globals.css";
 import AuthProvider from "@/components/providers/AuthProvider";
 import { Toaster } from "sonner";
+import localFont from "next/font/local"
 
-const inter = Inter({ subsets: ["latin"] });
+
+const limeLight = Limelight({ subsets: ['latin'], weight: '400', variable: '--font-limeLight' })
+const LibreBaskerville = Libre_Baskerville ({ subsets: ['latin'], weight: '400', variable: '--font-libreBaskerville' })
+const myFont = localFont({src: "../public/font/CloisterBlack.ttf",  variable: '--font-myFont'})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en"  className={`${myFont.variable} ${limeLight.variable} ${LibreBaskerville.variable}`}>
+      <body>
         <AuthProvider>
           <Toaster richColors toastOptions={{ classNames: { title: 'text-lg' } }} />
           {children}
