@@ -5,8 +5,6 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 import React, { useEffect, useState } from 'react'
-import NavbarTitle from "./NavbarTitle";
-import NavbarCategory from "./NavbarCategory";
 import { AlignLeft } from "lucide-react";
 
 const Header = () => {
@@ -42,7 +40,10 @@ const Header = () => {
         <div className="flex flex-grow">la voie de l'info</div>
         <div className="flex gap-3">
           <button>subscribe</button>
+          <Link href={'/login'}>
           <button>login</button>
+            
+          </Link>
         </div>
         
       </nav>

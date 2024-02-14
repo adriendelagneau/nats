@@ -73,6 +73,7 @@ export const verifyEmail = async (token: string) => {
 
     try {
         const { user } = verifyToken(token)
+        console.log(user, "ve")
      
         const userExist = await User.findOne({ email: user.email })
         

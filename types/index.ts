@@ -17,3 +17,9 @@ export interface TokenPayload {
     user: TSignUpSchema;
 }
   
+
+export interface VerifyPageProps {
+    searchParams: {
+      token?: string;
+    };
+  }
