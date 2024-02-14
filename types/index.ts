@@ -12,3 +12,8 @@ export interface TCustomSessionUser {
 export type TSignUpSchema = z.infer<typeof signUpSchema>;
 export type TLoginSchema = z.infer<typeof loginSchema>;
 
+// jwt payload
+export interface TokenPayload {
+    user: TSignUpSchema;
+}
+  
