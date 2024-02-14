@@ -2,13 +2,13 @@ import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import User from "@/lib/models/User";
 import bcrypt from "bcryptjs";
-import dbConnect from "@/lib/dbConnect";
+import {dbConnect} from "@/lib/dbConnect";
 import nextAuth, { AuthOptions } from 'next-auth';
 import { loginSchema } from "@/lib/zod/schema";
 import { TCustomSessionUser } from "@/types";
 
 // Define authentication options
-export const authOptions: AuthOptions = {
+ const authOptions: AuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     // Credentials-based authentication

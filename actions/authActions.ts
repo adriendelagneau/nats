@@ -1,6 +1,6 @@
 // Import necessary modules and dependencies
 import ContactFormEmail from "@/emails/contact-form-email";
-import dbConnect from "@/lib/dbConnect";
+import {dbConnect} from "@/lib/dbConnect";
 import User from "@/lib/models/User";
 import { registerSchema } from "@/lib/zod/schema";
 import { TRegisterSchema } from "@/types";
