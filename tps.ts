@@ -2,15 +2,15 @@
 
 import { findUserByEmail, registerWithCredential } from '@/actions/authActions';
 import { registerSchema } from '@/lib/zod/schema';
-
 import { TRegisterSchema } from '@/types';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from "sonner";
 
+ // Define the RegisterForm component
 const RegisterForm = () => {
-
+  // Initialize React Hook Form
   const {
     register,
     handleSubmit,
@@ -20,20 +20,34 @@ const RegisterForm = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit: SubmitHandler<TRegisterSchema> = async data => {
-    // TODO: submit to server
-    // ...
-    const res = await findUserByEmail(data.email)
+  // Handle form submission
+  const onSubmit: SubmitHandler<TRegisterSchema> = async (data) => {
+    try {
+      // Check if user already exists
+      const userExists = await findUserByEmail(data.email);
 
-    if (res === true) {
-      toast.info(`User Already exist for ${data.email}`)
-      return
+      if (userExists) {
+        toast.info(`User already exists for ${data.email}`);
+        return;
+      }
+
+      // Register the user with provided credentials
+      const registrationResponse = await registerWithCredential(data);
+
+      if (registrationResponse?.msg) {
+        // Display success message and reset the form
+        toast.success(`Email verification sent to ${data.email}`);
+        reset();
+      } else {
+        // Display error message for registration failure
+        toast.error("Error during registration, please try again later");
+      }
+    } catch (error) {
+      // Handle network errors or unexpected errors from the API calls
+      console.error("API call error:", error);
+      toast.error("An unexpected error occurred, please try again later");
     }
-
-    const resp = await registerWithCredential(data)
-    if (resp?.msg) toast.success(`Email verification send to ${data.email}`)
-    else toast.error("Error during registration, sorry try later")
-  }
+  };
 
 
   return (
