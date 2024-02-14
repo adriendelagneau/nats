@@ -1,17 +1,9 @@
 import mongoose from "mongoose";
 
-export interface Users extends mongoose.Schema {
-    name: string;
-    email: string;
-    password?: string;
-    image?: string;
-    provider: string;
-    role: string
-}
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const UserSchema = new mongoose.Schema<Users>({
+const UserSchema = new mongoose.Schema({
 
     name: {
         type: String,
@@ -43,5 +35,5 @@ const UserSchema = new mongoose.Schema<Users>({
       
 })
 
-export default mongoose.models.User || mongoose.model<Users>("User", UserSchema);
+export default mongoose.models.User || mongoose.model("User", UserSchema);
 
