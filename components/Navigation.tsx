@@ -6,7 +6,7 @@ const Navigation = async () => {
   
   const category = await getCategories()
 
- // await createSub()
+  // await createSub()
  // await createCat()
     
 

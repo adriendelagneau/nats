@@ -15,3 +15,7 @@
           scrollbar-width: none;  /* Firefox */
     }
   }
+
+  .custom-clip-path {
+    clip-path: polygon(13% 0, 100% 0, 100% 100%, 13% 100%, 13% 57%, 6% 50%, 13% 43%);
+  }

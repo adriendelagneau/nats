@@ -39,3 +39,21 @@ export interface GetArticlesResult {
   articles: TArticle[];
   totalPages: number;
 }
+
+///////////////
+
+
+export interface TSubcategory {
+  _id: string;
+  name: string;
+
+  // Add other properties if your subcategory data has more fields
+}
+
+export interface TCategory {
+  _id: string;
+  name: string;
+  sub: TSubcategory[]; // Optional subcategories
+
+  // Add other properties if your category data has more fields
+}

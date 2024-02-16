@@ -7,8 +7,10 @@ import Link from "next/link";
 import React, { useEffect, useState } from 'react'
 import { AlignLeft, TextSearch } from "lucide-react";
 import Sidebar from "./Sidebar";
+import { TCategory } from "@/types";
 
-const Header = ({cat}) => {
+
+const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
   const [showTitle, setShowTitle] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -31,11 +33,13 @@ const Header = ({cat}) => {
     };
   }, []);
 
-  console.log(cat)
+
 
   return (
-    <div className="relative">
-      <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} cat={cat } />
+    <div className="relative top-20">
+      <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} cat={cat} />
+      
+
     <header className="fixed top-0 left-0 z-50 w-full h-[70px]">
     <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3 bg-white">
       

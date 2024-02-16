@@ -15,7 +15,7 @@ export const getCategories = async () => {
         path: 'sub',
         select: 'name'
       }).lean().exec();
-        return categoriesWithSubcategories;
+        return JSON.parse(JSON.stringify(categoriesWithSubcategories)) ;
       } catch (error) {
         console.error("Error fetching categories with subcategories:", error);
         throw error;
@@ -25,7 +25,7 @@ export const getCategories = async () => {
 export const createSub = async () => {
   try {
     const newSub = await Subcategory.create({
-      name:"combat"
+      name:"international"
     })
     return {msg: "success"}
   } catch (err) {
@@ -36,8 +36,8 @@ export const createSub = async () => {
 export const createCat = async () => {
   try {
     const newSub = await Category.create({
-      name: "sport",
-      sub: ["65cf4125a41d45a37ae6ddc5"]
+      name: "politique",
+      sub: []
     })
     return {msg: "success"}
   } catch (err) {
