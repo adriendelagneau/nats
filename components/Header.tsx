@@ -5,19 +5,19 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 import React, { useEffect, useState } from 'react'
-import { AlignLeft } from "lucide-react";
+import { AlignLeft, TextSearch } from "lucide-react";
+import Sidebar from "./Sidebar";
 
-const Header = () => {
+const Header = ({cat}) => {
 
   const [showTitle, setShowTitle] = useState(false);
-  const { data: session } = useSession()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-console.log(showTitle)
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
 
-      if (scrollY > 100) {
+      if (scrollY > 120) {
         setShowTitle(true);
       } else {
         setShowTitle(false);
@@ -31,20 +31,23 @@ console.log(showTitle)
     };
   }, []);
 
+  console.log(cat)
+
   return (
-    <header className="fixed top-0 left-0 z-50 w-full h-18">
+    <div className="relative">
+      <Sidebar isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} cat={cat } />
+    <header className="fixed top-0 left-0 z-50 w-full h-[70px]">
     <nav className="relative flex items-center justify-between w-full h-full gap-3 p-3 bg-white">
       
       {/* Left side */}
-      <div className={`${showTitle ? '' : 'flex flex-grow gap-6 items-center'}`}>
-        <AlignLeft size={24} strokeWidth={1}  />
+          <div className={`${showTitle ? '' : 'flex flex-grow gap-6 items-center'}`}>
+        <TextSearch size={28} strokeWidth={1} onClick={() => setIsMenuOpen(!isMenuOpen)} className="cursor-pointer"/>
           <div className={`${showTitle ? 'hidden' : 'flex flex-grow '}`}>
-            <ul className="flex gap-4 text-lg">
-              <li>Politique</li>
-              <li>Economie</li>
-              <li>Culture</li>
-              <li>Sport</li>
-              <li>Ecologie</li>
+              <ul className="hidden gap-4 text-lm sm:flex capitalize">
+                {cat?.map((c,i) => (
+                  <li key={i}>{c.name}</li>
+                ))}
+          
             </ul>
         </div>
       </div>
@@ -56,16 +59,17 @@ console.log(showTitle)
       {/* Right side */}
         <div className="flex gap-3">
           <Link href="/subscribe" >
-        <button className="p-2 rounded-lg  w-[90px] block text-center bg-blue-600 text-white hover:bg-opacity-90">Subscribe</button>
+        <button className="p-1 rounded-full border border-blue-600  w-[90px] block text-center bg-blue-600 text-white hover:bg-opacity-90">Subscribe</button>
             
           </Link>
         <Link href="/login" passHref>
-            <button className="p-2 rounded-lg  w-[90px] block text-center bg-blue-600 text-white hover:bg-opacity-90">Login</button>
+            <button className="p-1 rounded-full  w-[90px] block text-center text-blue-600 border border-blue-600 hover:text-blue-800 hover:border-blue-800">Login</button>
         </Link>
       </div>
       
     </nav>
   </header>
+  </div>
   )
 }
 

@@ -1,3 +1,4 @@
+import { TArticle } from "@/lib/models/Article";
 import { loginSchema, signUpSchema } from "@/lib/zod/schema";
 import { z } from "zod";
 
@@ -22,4 +23,19 @@ export interface VerifyPageProps {
     searchParams: {
       token?: string;
     };
-  }
+}
+  
+// getArticles S.A
+export interface GetArticlesParams {
+  page?: number;
+  limit: number;
+  query?: string | RegExp;
+  category?: any;
+  subcategory?: any;
+  sort: string;
+}
+
+export interface GetArticlesResult {
+  articles: TArticle[];
+  totalPages: number;
+}

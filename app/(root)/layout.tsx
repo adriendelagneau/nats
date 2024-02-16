@@ -1,4 +1,6 @@
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Navigation from "@/components/Navigation";
 
 export default function RootLayout({
   children,
@@ -8,8 +10,11 @@ export default function RootLayout({
   return (
   
     <div>
-      <Header />
+      <Navigation />
+   
+
       {children}
+      <Footer />
     </div>
    
   );

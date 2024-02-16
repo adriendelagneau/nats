@@ -1,11 +1,8 @@
 import mongoose, { Document } from "mongoose";
 
-export interface Subcategory extends Document {
-  name: string;
-}
 
-const subcategorySchema = new mongoose.Schema<Subcategory>({
+const subcategorySchema = new mongoose.Schema({
   name: { type: String, required: true },
 });
 
-export default mongoose.models.Category || mongoose.model<Subcategory>("Category", subcategorySchema);
+export default mongoose.models.Subcategory || mongoose.model("Subcategory", subcategorySchema);

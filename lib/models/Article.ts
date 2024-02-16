@@ -1,6 +1,6 @@
 import mongoose, { Document } from "mongoose";
 
-export interface Article extends Document {
+export interface TArticle extends Document {
   title: string;
   content: string;
   category: mongoose.Schema.Types.ObjectId;
@@ -9,7 +9,7 @@ export interface Article extends Document {
   images: string[];
 }
 
-const articleSchema = new mongoose.Schema<Article>({
+const articleSchema = new mongoose.Schema<TArticle>({
   title: { type: String, required: true },
   content: { type: String, required: true },
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
@@ -18,4 +18,4 @@ const articleSchema = new mongoose.Schema<Article>({
   images: [{ type: String }], // Assuming the image paths or URLs are stored as strings
 });
 
-export default mongoose.models.Article || mongoose.model<Article>("Article", articleSchema);
+export default mongoose.models.Article || mongoose.model<TArticle>("Article", articleSchema);

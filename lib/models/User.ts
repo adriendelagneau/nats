@@ -6,7 +6,8 @@ export interface Users extends mongoose.Schema {
     password?: string;
     image?: string;
     provider: string;
-    role: string
+    role: string;
+    isSubscribe: boolean
 }
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,7 +40,12 @@ const UserSchema = new mongoose.Schema<Users>({
         enum: ["user", "admin"],
         default: 'user',
         required: true,
-      },
+    },
+    isSubscribe: {
+        type: Boolean,
+        default: false,
+        required: true
+    }
       
 })
 
