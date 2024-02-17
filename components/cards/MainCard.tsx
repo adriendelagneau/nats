@@ -5,7 +5,6 @@ import React from 'react'
 
 const MainCard: React.FC<MainCardProps> = ({ article }) => {
 
-    console.log(article)
     return (
         <div className='max-w-screen-xl p-3 mx-auto flex flex-col lg:flex-row-reverse'>
 
@@ -18,7 +17,7 @@ const MainCard: React.FC<MainCardProps> = ({ article }) => {
             </div>
 
             <div className='lg:w-1/2 flex flex-col lg:justify-between pr-3'>
-                <div className='text-4xl leading-snug font-large  xl:leading-[1.2]  xl:text-5xl  font-PontanoSans lg:my-0 my-12 line-clamp-2'>
+                <div className='text-4xl leading-snug font-large  xl:leading-[1.2]  xl:text-5xl  font-PontanoSans lg:my-0 my-12'>
                     <Link href={"/"}>{article.title}</Link>
                 </div>
                 <div>

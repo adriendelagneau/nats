@@ -25,20 +25,6 @@ export interface VerifyPageProps {
     };
 }
   
-// getArticles Server action
-export interface GetArticlesParams {
-  page?: number;
-  limit: number;
-  query?: string | RegExp;
-  category?: any;
-  subcategory?: any;
-  sort: string;
-}
-
-export interface GetArticlesResult {
-  articles: TArticle[];
-  totalPages: number;
-}
 
 ///////////////
 
@@ -66,5 +52,15 @@ export interface IGetArticlesResponse {
   msg: string;
   error?: string;
   data?: TArticle[]; // The array of articles
+  totalPages: number;
+}
+
+export interface GetArticlesParams {
+  page?: number;
+  limit?: number;
+  query?: string;
+  category?: string;
+  subcategory?: string;
+  sort?: string;
 }
 

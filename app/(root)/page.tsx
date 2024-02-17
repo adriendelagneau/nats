@@ -1,4 +1,5 @@
 import { getArticles } from "@/actions/articlesActions";
+import MainGutter from "@/components/MainGutter";
 import MainCard from "@/components/cards/MainCard";
 
 
@@ -6,20 +7,21 @@ import MainCard from "@/components/cards/MainCard";
 export default async function Home() {
 
  
-  const articles  = await getArticles()
+  const articles  = await getArticles({limit: 3})
 
   return (
     <main className="w-full   mx-auto mt-24">
 
   
-    <div className='w-full my-10 text-center '>
+      <div className='w-full my-10 text-center '>
          <h1 className='text-5xl font-semibold font-limeLight'>La Voie De L&rsquo;Info</h1>
         <p className="font-normal ">Votre fenêtre sur l&rsquo;actualité</p>
       </div>
 
 
       
-      <div className="flex mx-auto h-auto gap-6">
+      <div className="flex mx-auto h-auto gap-6 relative">
+        
         <div>
           <ul className="">
             {articles.data?.map((a, i) => (
@@ -30,8 +32,10 @@ export default async function Home() {
             ))}
           </ul>
         </div>
-        
-        <div className="w-[250px] min-h-screen hidden 2xl:inline-block border-l bg-purple-800"></div>
+        <div className="h-screen sticky top-24">
+
+      <MainGutter />
+        </div>
       </div>
      
     </main>

@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@studio-freight/react-lenis": "^0.0.44",
     "@types/jsonwebtoken": "^9.0.5",
     "bcryptjs": "^2.4.3",
     "install": "^0.13.0",
@@ -25,6 +26,7 @@
     "react-hook-form": "^7.50.1",
     "resend": "^3.2.0",
     "sonner": "^1.4.0",
+    "timeago.js": "^4.0.2",
     "zod": "^3.22.4",
     "zustand": "^4.5.0"
   },

@@ -49,7 +49,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMenuOpen, setIsMenuOpen, cat }) => 
 
                     </div>
 
-                    <ul className='w-full h-full py-3'>
+                    <ul className='w-full h-full py-3 text-lg'>
                         {cat?.map((link, i) => (
                             <li key={i} className="relative">
 

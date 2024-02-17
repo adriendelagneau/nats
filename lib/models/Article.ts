@@ -12,6 +12,7 @@ export interface TArticle extends Document {
   subcategory?: mongoose.Schema.Types.ObjectId;
   author: string;
   images: TImage[];
+  createdAt: Date; // Include the createdAt field
 }
 
 const imageSchema = new Schema({
@@ -26,6 +27,7 @@ const articleSchema = new Schema<TArticle>({
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'subcategory' },
   author: { type: String, required: true },
   images: [imageSchema], // Array of objects with url and legend
+  createdAt: { type: Date, default: Date.now }
 });
 
 export default mongoose.models.Article || mongoose.model<TArticle>("Article", articleSchema);

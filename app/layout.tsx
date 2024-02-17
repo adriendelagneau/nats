@@ -3,6 +3,7 @@ import { Limelight, Frank_Ruhl_Libre, Pontano_Sans, Playfair_Display } from 'nex
 import "./globals.css";
 import AuthProvider from "@/components/providers/AuthProvider";
 import { Toaster } from "sonner";
+import SmoothScrolling from "@/components/providers/LennisProvider";
 
 
 
@@ -26,7 +27,9 @@ export default function RootLayout({
       <body>
         <AuthProvider>
           <Toaster richColors toastOptions={{ classNames: { title: 'text-lg' } }} />
+          <SmoothScrolling>
           {children}
+          </SmoothScrolling>
         </AuthProvider>
       </body>
     </html>
