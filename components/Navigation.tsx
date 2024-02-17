@@ -1,7 +1,7 @@
-import { createCat, createSub, getCategories } from '@/actions/categoryActions'
+import { getCategories } from '@/actions/categoryActions'
 import React from 'react'
 import Header from './Header'
-import { createArticle } from '@/actions/articlesActions'
+
 
 const Navigation = async () => {
   
