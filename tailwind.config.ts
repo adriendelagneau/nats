@@ -15,7 +15,8 @@ const config: Config = {
       },
       fontFamily: {     
         limeLight: ['var(--font-limeLight)'],
-        myFont: ['var(--font-myFont)']
+        FrankRuhlLibre: ['var(--font-FrankRuhlLibre)'],
+        PlayfairDisplay: ['var(--font-PlayfairDisplay)']
      }
     },
   },

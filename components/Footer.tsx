@@ -5,8 +5,8 @@ const Footer = () => {
   return (
 
 
-    <footer className="relative pt-8 pb-6 ">
-      <div className="container px-4 mx-auto">
+    <footer className="relative pt-8 pb-6 w-full">
+      <div className="w-full px-4 mx-auto">
         <div className="flex flex-wrap text-left lg:text-left">
           <div className="w-full px-4 lg:w-6/12">
             <h4 className="text-3xl fonat-semibold text-blueGray-700">Let's keep in touch!</h4>

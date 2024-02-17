@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Limelight } from 'next/font/google'
+import { Limelight, Frank_Ruhl_Libre, Pontano_Sans, Playfair_Display } from 'next/font/google'
 import "./globals.css";
 import AuthProvider from "@/components/providers/AuthProvider";
 import { Toaster } from "sonner";
-import localFont from "next/font/local"
+
+
 
 
 const limeLight = Limelight({ subsets: ['latin'], weight: '400', variable: '--font-limeLight' })
-const LibreBaskerville = Libre_Baskerville ({ subsets: ['latin'], weight: '400', variable: '--font-libreBaskerville' })
-const myFont = localFont({src: "../public/font/CloisterBlack.ttf",  variable: '--font-myFont'})
-
+const FrankRuhlLibre = Frank_Ruhl_Libre ({subsets: ['latin'], weight: '400', variable: '--font-FrankRuhlLibre' })
+const PlayfairDisplay = Playfair_Display({ subsets: ['latin'], weight: '400', variable: '--font-PlayfairDisplay'})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en"  className={`${myFont.variable} ${limeLight.variable} ${LibreBaskerville.variable}`}>
+    <html lang="en"  className={`${FrankRuhlLibre.variable} ${PlayfairDisplay.variable} ${limeLight.variable}`}>
       <body>
         <AuthProvider>
           <Toaster richColors toastOptions={{ classNames: { title: 'text-lg' } }} />

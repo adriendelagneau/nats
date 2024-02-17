@@ -47,7 +47,7 @@ const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
           <div className={`${showTitle ? '' : 'flex flex-grow gap-6 items-center'}`}>
         <TextSearch size={28} strokeWidth={1} onClick={() => setIsMenuOpen(!isMenuOpen)} className="cursor-pointer"/>
           <div className={`${showTitle ? 'hidden' : 'flex flex-grow '}`}>
-              <ul className="hidden gap-4 text-lm sm:flex capitalize">
+              <ul className="hidden gap-4 text-lm sm:flex capitalize text-lg">
                 {cat?.map((c,i) => (
                   <li key={i}>{c.name}</li>
                 ))}

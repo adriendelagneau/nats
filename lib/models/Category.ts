@@ -7,7 +7,7 @@ interface Category extends Document {
 }
 
 const categorySchema = new mongoose.Schema<Category>({
-  name: { type: String, required: true },
+  name: { type: String, required: true, unique: true },
   sub: [{ type: Schema.Types.ObjectId, ref: "Subcategory" }],
 });
 

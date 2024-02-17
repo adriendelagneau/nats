@@ -19,3 +19,7 @@
   .custom-clip-path {
     clip-path: polygon(13% 0, 100% 0, 100% 100%, 13% 100%, 13% 57%, 6% 50%, 13% 43%);
   }
+
+  body{
+    font-family: var(--font-PlayfairDisplay);
+  }

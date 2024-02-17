@@ -25,7 +25,7 @@ export interface VerifyPageProps {
     };
 }
   
-// getArticles S.A
+// getArticles Server action
 export interface GetArticlesParams {
   page?: number;
   limit: number;
@@ -56,4 +56,8 @@ export interface TCategory {
   sub: TSubcategory[]; // Optional subcategories
 
   // Add other properties if your category data has more fields
+}
+
+export interface MainCardProps {
+  article: TArticle;
 }

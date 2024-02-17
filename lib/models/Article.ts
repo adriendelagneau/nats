@@ -1,21 +1,32 @@
-import mongoose, { Document } from "mongoose";
+import mongoose, { Document, Schema } from "mongoose";
+
+export interface TImage {
+  url: string;
+  legend: string;
+}
 
 export interface TArticle extends Document {
   title: string;
-  content: string;
+  content: string[];
   category: mongoose.Schema.Types.ObjectId;
   subcategory?: mongoose.Schema.Types.ObjectId;
   author: string;
-  images: string[];
+  images: TImage[];
 }
 
-const articleSchema = new mongoose.Schema<TArticle>({
+const imageSchema = new Schema({
+  url: { type: String, required: true },
+  legend: { type: String, required: true },
+});
+
+const articleSchema = new Schema<TArticle>({
   title: { type: String, required: true },
-  content: { type: String, required: true },
+  content: [{ type: String }],
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'subcategory' },
   author: { type: String, required: true },
-  images: [{ type: String }], // Assuming the image paths or URLs are stored as strings
+  images: [imageSchema], // Array of objects with url and legend
 });
 
 export default mongoose.models.Article || mongoose.model<TArticle>("Article", articleSchema);
+
