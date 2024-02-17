@@ -61,3 +61,10 @@ export interface TCategory {
 export interface MainCardProps {
   article: TArticle;
 }
+
+export interface IGetArticlesResponse {
+  msg: string;
+  error?: string;
+  data?: TArticle[]; // The array of articles
+}
+

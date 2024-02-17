@@ -1,7 +1,7 @@
 'use server'
 import { dbConnect } from "@/lib/dbConnect";
 import Article, { TArticle } from "@/lib/models/Article";
-import { GetArticlesParams, GetArticlesResult } from "@/types";
+import { GetArticlesParams, GetArticlesResult, IGetArticlesResponse } from "@/types";
 
 
 
@@ -72,29 +72,35 @@ import { GetArticlesParams, GetArticlesResult } from "@/types";
 // };
 
 
-export const createArticle = async () => {
-    try {
-      const newArticle: TArticle = await Article.create({
-        title: "Sample Article",
-        content: ["Lorem ipsum content"],
-        category: "65cf8f87c472cd33efbc9c88",
-        author: "John Doe",
-        images: [{url : "https://res.cloudinary.com/dos8mey8r/image/upload/v1708163477/LeCanard/cute-arctic-mammal-walking-frozen-ice-generated-by-ai_nuwyj0.jpg", legend: "une description imagée de la photos"}],
-      });
+
+// export const createArticle = async () => {
+//     try {
+//       const newArticle: TArticle = await Article.create({
+//         title: "Sample Article",
+//         content: ["Lorem ipsum content"],
+//         category: "65cf8f87c472cd33efbc9c88",
+//         author: "John Doe",
+//         images: [{url : "https://res.cloudinary.com/dos8mey8r/image/upload/v1708163477/LeCanard/cute-arctic-mammal-walking-frozen-ice-generated-by-ai_nuwyj0.jpg", legend: "une description imagée de la photos"}],
+//       });
   
-      return { msg: "success", article: newArticle };
-    } catch (err) {
-      console.error(err);
-      return { msg: "error", error: err.message };
-    }
+//       return { msg: "success", article: newArticle };
+//     } catch (err) {
+//       console.error(err);
+//       return { msg: "error", error: err.message };
+//     }
+// };
+
+
+
+  
+export const getArticles = async (): Promise<IGetArticlesResponse> => {
+  await dbConnect();
+  try {
+    const res = await Article.find();
+    const articles = JSON.parse(JSON.stringify(res)) as TArticle[];
+    return { msg: "success", data: articles };
+  } catch (err) {
+    const errorMessage = (err as Error).message; // Use type assertion to cast 'err' to 'Error'
+    return { msg: "error", error: errorMessage };
+  }
 };
-  
-export const getArticles = async () => {
-    await dbConnect()
-    try {
-        const res = await Article.find()
-        return JSON.parse(JSON.stringify(res))
-    } catch (err) {
-        return { msg: "error", error: err.message };
-    }
-}

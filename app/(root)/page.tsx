@@ -1,12 +1,13 @@
-import { createArticle, getArticles } from "@/actions/articlesActions";
+import { getArticles } from "@/actions/articlesActions";
 import MainCard from "@/components/cards/MainCard";
+
+
 
 export default async function Home() {
 
  
-  const articles = await getArticles()
+  const articles  = await getArticles()
 
-  console.log(articles)
   return (
     <main className="w-full   mx-auto mt-24">
 
@@ -21,7 +22,7 @@ export default async function Home() {
       <div className="flex mx-auto h-auto gap-6">
         <div>
           <ul className="">
-            {articles.map((a, i) => (
+            {articles.data?.map((a, i) => (
               <div key={i}>
               <MainCard key={i} article={a} />
               <div className="w-[90%] h-[1px] mx-auto bg-slate-300 my-14"></div>
