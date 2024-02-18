@@ -1,34 +1,20 @@
 import mongoose, { Document, Schema } from "mongoose";
 
-export interface TImage {
-  url: string;
-  legend: string;
-}
 
-export interface TArticle extends Document {
-  title: string;
-  content: string[];
-  category: mongoose.Schema.Types.ObjectId;
-  subcategory?: mongoose.Schema.Types.ObjectId;
-  author: string;
-  images: TImage[];
-  createdAt: Date; // Include the createdAt field
-}
 
 const imageSchema = new Schema({
   url: { type: String, required: true },
   legend: { type: String, required: true },
 });
 
-const articleSchema = new Schema<TArticle>({
+const articleSchema = new Schema({
   title: { type: String, required: true },
   content: [{ type: String }],
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'subcategory' },
   author: { type: String, required: true },
   images: [imageSchema], // Array of objects with url and legend
-  createdAt: { type: Date, default: Date.now }
 });
 
-export default mongoose.models.Article || mongoose.model<TArticle>("Article", articleSchema);
+export default mongoose.models.Article || mongoose.model("Article", articleSchema);
 

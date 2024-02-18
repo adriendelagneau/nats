@@ -6,5 +6,4 @@
     -page
     -selector component
 
--slider multi gsap
-    -slider cards
+

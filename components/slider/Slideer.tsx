@@ -8,7 +8,8 @@ import Link from "next/link";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SliderCard from "../cards/SliderCard";
-import { TArticle } from "@/lib/models/Article";
+import { TArticle } from "@/types";
+
 
 GSAP.registerPlugin(Draggable);
 
@@ -106,7 +107,7 @@ type SlideerProps = {
                 <div className="absolute top-0 flex gap-6 py-3 transition-transform duration-500 ease-out" ref={sliderRef}>
                     {articles?.map((item, i) => (
                         <div key={i}>
-                            <SliderCard productData={item} />
+                            <SliderCard {...item} />
                         </div>
                     ))}
                 </div>

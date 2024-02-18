@@ -1,6 +1,37 @@
-import { TArticle } from "@/lib/models/Article";
-import { loginSchema, signUpSchema } from "@/lib/zod/schema";
 import { z } from "zod";
+
+import { loginSchema, signUpSchema } from "@/lib/zod/schema";
+
+
+// Articles
+
+export interface TArticle  {
+  _id?: string;
+  title: string;
+  content: string[];
+  category: string
+  subcategory?: string
+  author: string;
+  images: TImage[];
+  createdAt: Date; // Include the createdAt field
+}
+
+export interface TImage {
+  url: string;
+  legend: string;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Define Custom session user interface 
 export interface TCustomSessionUser {
@@ -63,5 +94,16 @@ export interface GetArticlesParams {
 }
 
 export type SlideerProps = {
-  articles: TArticle[];
+  articles?: TArticle[];
 };
+
+export interface SliderCardData {
+  title: string;
+  content: string[];
+  category: TCategory;
+  subcategory?: TSubcategory; // Optional subcategory
+  author: string;
+  images: TImage[];
+  createdAt: Date;
+  // Add other relevant properties
+}
