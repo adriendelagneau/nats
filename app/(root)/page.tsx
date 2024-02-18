@@ -60,26 +60,6 @@ export default async function Home() {
         </div>
       </div>
 
-        
-      <SliderContainer />
-
-      <div className="flex mx-auto h-auto gap-6 relative">
-        
-        <div>
-          <ul className="">
-            {articles.data?.map((a, i) => (
-              <div key={i}>
-              <MainCard key={i} article={a} />
-              <div className="w-[90%] h-[1px] mx-auto bg-slate-300 my-14"></div>
-              </div>
-            ))}
-          </ul>
-        </div>
-        <div className="h-screen sticky top-24">
-
-      <MainGutter />
-        </div>
-      </div>
     </main>
   );
 }
