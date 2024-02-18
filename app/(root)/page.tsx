@@ -1,6 +1,7 @@
 import { getArticles } from "@/actions/articlesActions";
 import MainGutter from "@/components/MainGutter";
 import MainCard from "@/components/cards/MainCard";
+import SliderContainer from "@/components/slider/SliderContainer";
 
 
 
@@ -19,6 +20,7 @@ export default async function Home() {
       </div>
 
 
+     
       
       <div className="flex mx-auto h-auto gap-6 relative">
         
@@ -38,7 +40,7 @@ export default async function Home() {
         </div>
       </div>
      
-      <div className="w-full h-[300px] bg-teal-800 mb-28"></div>
+      <SliderContainer />
 
       <div className="flex mx-auto h-auto gap-6 relative">
         
@@ -59,7 +61,7 @@ export default async function Home() {
       </div>
 
         
-      <div className="w-full h-[300px] bg-teal-800 mb-28"></div>
+      <SliderContainer />
 
       <div className="flex mx-auto h-auto gap-6 relative">
         

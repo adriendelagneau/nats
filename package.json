@@ -13,6 +13,7 @@
     "@studio-freight/react-lenis": "^0.0.44",
     "@types/jsonwebtoken": "^9.0.5",
     "bcryptjs": "^2.4.3",
+    "gsap": "^3.12.5",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.330.0",

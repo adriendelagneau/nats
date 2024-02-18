@@ -1,0 +1,10 @@
+-single
+    - sever action
+    - page
+
+- category
+    -page
+    -selector component
+
+-slider multi gsap
+    -slider cards

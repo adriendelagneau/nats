@@ -49,8 +49,6 @@ export interface MainCardProps {
 }
 
 export interface IGetArticlesResponse {
-  msg: string;
-  error?: string;
   data?: TArticle[]; // The array of articles
   totalPages: number;
 }
@@ -64,3 +62,6 @@ export interface GetArticlesParams {
   sort?: string;
 }
 
+export type SlideerProps = {
+  articles: TArticle[];
+};

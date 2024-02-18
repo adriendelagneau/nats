@@ -60,7 +60,7 @@ export const getArticles = async ({
     const plainObject = JSON.parse(JSON.stringify(result));
 
     // Return the articles along with total pages
-    return { msg: 'success', data: plainObject, totalPages };
+    return { data: plainObject, totalPages };
   } catch (err) {
     console.error('Error in getArticles:', err);
     throw new Error('An unexpected error occurred while fetching articles.');
