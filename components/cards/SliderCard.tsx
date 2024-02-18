@@ -1,11 +1,8 @@
-import { TImage } from '@/types';
+import { SliderCardProps, TImage } from '@/types';
 import Image from 'next/image'
 import React from 'react'
 
-interface SliderCardProps {
-  images: TImage[];
-  title: string;
-}
+
 
 const SliderCard: React.FC<SliderCardProps> = ({ images, title }) => {
 

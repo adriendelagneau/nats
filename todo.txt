@@ -7,3 +7,8 @@
     -selector component
 
 
+-handle slder resize
+
+- image optimisation (srcset)
+
+

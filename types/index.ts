@@ -2,18 +2,23 @@ import { z } from "zod";
 
 import { loginSchema, signUpSchema } from "@/lib/zod/schema";
 
-
-// Articles
-
-export interface TArticle  {
+// Subcategory
+export interface TSubcategory {
   _id?: string;
+  name: string;
+}
+
+// Category
+export interface TCategory {
+  _id?: string;
+  name: string;
+  sub: TSubcategory[]; 
+}
+
+// Article
+export interface TContent {
   title: string;
-  content: string[];
-  category: TCategory
-  subcategory?: TSubcategory
-  author: string;
-  images: TImage[];
-  createdAt: Date; // Include the createdAt field
+  text: string;
 }
 
 export interface TImage {
@@ -21,15 +26,33 @@ export interface TImage {
   legend: string;
 }
 
-
-
-
-export interface SinglePageProps {
-  params: {
-    _id: string;
-    name: string;
-  };
+export interface TArticle  {
+  _id?: string;
+  title: string;
+  content: TContent[];
+  category: TCategory
+  subcategory?: TSubcategory
+  author: string;
+  images: TImage[];
+  createdAt: Date; 
 }
+
+//
+export interface GetArticlesParams {
+  page?: number;
+  limit?: number;
+  query?: string;
+  category?: string;
+  subcategory?: string;
+  sort?: string;
+}
+
+export interface IGetArticlesResponse {
+  data?: TArticle[]; // The array of articles
+  totalPages: number;
+}
+
+
 
 
 
@@ -66,50 +89,4 @@ export interface VerifyPageProps {
 ///////////////
 
 
-export interface TSubcategory {
-  _id: string;
-  name: string;
 
-  // Add other properties if your subcategory data has more fields
-}
-
-export interface TCategory {
-  _id: string;
-  name: string;
-  sub: TSubcategory[]; // Optional subcategories
-
-  // Add other properties if your category data has more fields
-}
-
-export interface MainCardProps {
-  article: TArticle;
-}
-
-export interface IGetArticlesResponse {
-  data?: TArticle[]; // The array of articles
-  totalPages: number;
-}
-
-export interface GetArticlesParams {
-  page?: number;
-  limit?: number;
-  query?: string;
-  category?: string;
-  subcategory?: string;
-  sort?: string;
-}
-
-export type SlideerProps = {
-  articles?: TArticle[];
-};
-
-export interface SliderCardData {
-  title: string;
-  content: string[];
-  category: TCategory;
-  subcategory?: TSubcategory; // Optional subcategory
-  author: string;
-  images: TImage[];
-  createdAt: Date;
-  // Add other relevant properties
-}

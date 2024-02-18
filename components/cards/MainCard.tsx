@@ -1,10 +1,9 @@
-import { MainCardProps } from '@/types'
+import { TArticle } from '@/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-const MainCard: React.FC<MainCardProps> = ({ article }) => {
-
+const MainCard= ({ article }: {article : TArticle}) => {
 
     return (
         <div className='max-w-screen-xl p-3 mx-auto flex flex-col lg:flex-row-reverse'>
@@ -21,7 +20,7 @@ const MainCard: React.FC<MainCardProps> = ({ article }) => {
                     <Link href={`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/article/${article._id}`}>{article.title}</Link>
                 </div>
                 <div>
-                    <div className='text-xl line-clamp-3'>{article.content}</div>
+                    <div className='text-xl line-clamp-3'>{article.content[0].text}</div>
                     <p className='py-5'>written by: {article.author}</p>
                 </div>
             </div>

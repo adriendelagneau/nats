@@ -1,5 +1,6 @@
 import { getArticleById } from '@/actions/articlesActions'
-import { SinglePageProps } from '@/types'
+import SingleGutter from '@/components/SingleGutter'
+import SingleCard from '@/components/cards/SingleCard'
 import React from 'react'
 
 const SinglePage = async ({ params: { id } }: { params: { id: string } }) => {
@@ -12,8 +13,8 @@ const SinglePage = async ({ params: { id } }: { params: { id: string } }) => {
   return (
     <div className='w-full   mx-auto mt-24'>
       
-      <h1>{article?.category.name}</h1>
-          <div>{article?.title}</div>
+      <SingleCard />
+      <SingleGutter />
     </div>
   )
 }

@@ -1,9 +1,9 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import GSAP, { Power1, Power2 } from "gsap";
 import { Draggable } from "gsap/Draggable";
-import Link from "next/link";
+// import Link from "next/link";
 
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -13,11 +13,7 @@ import { TArticle } from "@/types";
 
 GSAP.registerPlugin(Draggable);
 
-type SlideerProps = {
-    articles?: TArticle[]; // Use the type for an individual article here
-};
-
-const Slideer: React.FC<SlideerProps> = ({ articles }) => {
+const Slideer= ({ articles }: {articles: TArticle[]}) => {
 
     const sliderContainerRef = useRef<HTMLDivElement>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
