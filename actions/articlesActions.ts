@@ -1,7 +1,7 @@
 'use server'
 import { dbConnect } from "@/lib/dbConnect";
 import Article  from "@/lib/models/Article";
-import { GetArticlesParams, IGetArticlesResponse } from "@/types";
+import { GetArticlesParams, IGetArticlesResponse, TArticle } from "@/types";
 
 
 
@@ -66,6 +66,62 @@ export const getArticles = async ({
     throw new Error('An unexpected error occurred while fetching articles.');
   }
 };
+
+
+export const getArticleById = async (id: string): Promise<TArticle | null> => {
+  await dbConnect();
+
+  try {
+      // Use Mongoose findById to retrieve a product by its ID
+      const article = await Article.findById(id).populate({
+        path: 'category',
+        select: 'name'
+      }).lean().exec();
+
+      // If the product is not found, you may want to handle this case accordingly
+      if (!article) {
+          throw new Error("Product not found");
+      }
+
+      // Convert the MongoDB object to a plain JavaScript object
+      const plainObject = JSON.parse(JSON.stringify(article));
+
+      // Return the product as a plain object
+      return plainObject;
+  } catch (err) {
+      console.log(err);
+      throw err; // Rethrow the error to handle it at a higher level
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

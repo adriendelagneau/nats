@@ -6,8 +6,6 @@ const MainGutter = async () => {
 
   const articles = await getArticles({ limit: 4 })
   
-  console.log({ articles: articles })
-  
   return (
     <div className="w-[250px] min-h-screen hidden 2xl:inline-block">
       <p className='capitalize text-2xl font-semibold pb-8'>last pucications</p>

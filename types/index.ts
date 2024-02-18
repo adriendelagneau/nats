@@ -9,8 +9,8 @@ export interface TArticle  {
   _id?: string;
   title: string;
   content: string[];
-  category: string
-  subcategory?: string
+  category: TCategory
+  subcategory?: TSubcategory
   author: string;
   images: TImage[];
   createdAt: Date; // Include the createdAt field
@@ -24,6 +24,12 @@ export interface TImage {
 
 
 
+export interface SinglePageProps {
+  params: {
+    _id: string;
+    name: string;
+  };
+}
 
 
 
