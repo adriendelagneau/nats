@@ -13,7 +13,7 @@ import { TArticle } from "@/types";
 
 GSAP.registerPlugin(Draggable);
 
-const Slideer= ({ articles }: {articles: TArticle[]}) => {
+const Slideer= ({ articles }: {articles: TArticle[] | undefined }) => {
 
     const sliderContainerRef = useRef<HTMLDivElement>(null);
     const sliderRef = useRef<HTMLDivElement>(null);
