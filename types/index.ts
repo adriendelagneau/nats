@@ -38,7 +38,7 @@ export interface TArticle  {
 }
 
 
-
+///
 export interface GetArticlesParams {
   page?: number;
   limit?: number;
@@ -47,17 +47,6 @@ export interface GetArticlesParams {
   subcategory?: string;
   sort?: string;
 }
-
-
-
-
-
-// export type SlideerProps = {
-//   articles?: TArticle[];
-// };
-
-
-
 
 
 export interface IGetArticlesResponse {
@@ -83,11 +72,11 @@ export interface TokenPayload {
 }
   
 
-export interface VerifyPageProps {
-    searchParams: {
-      token?: string;
-    };
-}
+// export interface VerifyPageProps {
+//     searchParams: {
+//       token?: string;
+//     };
+// }
   
 
 ///////////////

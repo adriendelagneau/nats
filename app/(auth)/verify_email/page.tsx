@@ -2,11 +2,11 @@
 
 import React, { useEffect } from 'react';
 import { verifyEmail } from '@/actions/authActions'; 
-import { VerifyPageProps } from '@/types';
 
 
 
-const VerifyPage: React.FC<VerifyPageProps> = ({ searchParams }) => {
+
+const VerifyPage = ({ searchParams }: {searchParams: {token: string}}) => {
 
   const token = searchParams?.token;
 
