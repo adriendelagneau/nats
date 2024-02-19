@@ -1,9 +1,10 @@
-import { MainCardProps } from '@/types'
+import { TArticle } from '@/types'
 import Image from 'next/image'
 import React from 'react'
 
 
-const MainGutterCard: React.FC<MainCardProps> = ({ article }) => {
+const MainGutterCard = ({ article }: {article: TArticle}) => {
+  console.log(article, "tt")
  
   return (
     <div className='py-6'>
