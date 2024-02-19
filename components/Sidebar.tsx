@@ -56,7 +56,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMenuOpen, setIsMenuOpen, cat }) => 
                                 <Link
                                     href={`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/articles?category=${link.name}`}
                                     className="relative flex items-center justify-between hover:bg-blue-100 hover:cursor-pointer"
-                                    onMouseEnter={() => handleMouseEnter(link._id)}
+                                    onMouseEnter={() => handleMouseEnter(link.name)}
                                     onMouseLeave={handleMouseLeave}
                                     onClick={() => {
                                         setCurrentCategory(null)
@@ -69,9 +69,9 @@ const Sidebar: React.FC<SidebarProps> = ({ isMenuOpen, setIsMenuOpen, cat }) => 
 
                                 </Link>
 
-                                {currentCategory === link._id && link.sub.length > 0 && (
+                                {currentCategory === link.name && link.sub.length > 0 && (
                                     <div className='absolute right-0 top-[50%] transform translate-x-[100%] translate-y-[-50%] flex flex-col capitalize'
-                                        onMouseEnter={() => handleMouseEnter(link._id)}
+                                        onMouseEnter={() => handleMouseEnter(link.name)}
                                         onMouseLeave={handleMouseLeave}
                                     >
                                         <ul className='pl-4 bg-white custom-clip-path min-w-[130px] border'>
