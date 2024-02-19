@@ -1,10 +1,10 @@
-import { SliderCardProps, TImage } from '@/types';
+import { TImage} from '@/types';
 import Image from 'next/image'
 import React from 'react'
 
 
 
-const SliderCard: React.FC<SliderCardProps> = ({ images, title }) => {
+const SliderCard = ({ images, title }: {images: TImage[], title: string}) => {
 
   return (
       <div className='w-[320px] h-[280px]'>

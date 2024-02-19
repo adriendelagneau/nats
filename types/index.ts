@@ -37,7 +37,8 @@ export interface TArticle  {
   createdAt: Date; 
 }
 
-//
+
+
 export interface GetArticlesParams {
   page?: number;
   limit?: number;
@@ -47,19 +48,22 @@ export interface GetArticlesParams {
   sort?: string;
 }
 
+
+
+
+
+// export type SlideerProps = {
+//   articles?: TArticle[];
+// };
+
+
+
+
+
 export interface IGetArticlesResponse {
   data?: TArticle[]; // The array of articles
   totalPages: number;
 }
-
-
-
-
-
-
-
-
-
 
 
 // Define Custom session user interface 
