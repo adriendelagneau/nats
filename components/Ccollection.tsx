@@ -2,6 +2,7 @@
 
 import { IGetArticlesResponse } from '@/types'
 import React from 'react'
+import MainCard from './cards/MainCard'
 
 const Ccollection = ({ data } : IGetArticlesResponse) => {
 
@@ -9,7 +10,7 @@ const Ccollection = ({ data } : IGetArticlesResponse) => {
       <div>
           
           {data?.map((a, i) => (
-              <div key={i} className='w-full h-64 bg-teal-700 mb-12 pt-24'>{a.title }</div>
+           <MainCard key={i} article={a} />
           ))}
   </div>
   )

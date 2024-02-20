@@ -11,7 +11,7 @@ const ArticlesPage = async ({ searchParams }: {searchParams: GetArticlesParams})
   console.log(res)
 
   return (
-    <div>
+    <div className='pt-48'>
       <Ccollection {...res} />
       <InfinitScroll {...res} />
     </div>
