@@ -45,7 +45,7 @@ const InfinitScroll = ({ totalPages }: IGetArticlesResponse) => {
     }, [searchParams]);
 
     return (
-        <div className=' m-auto mt-5 max-w-screen-2xl'>
+        <div className=' m-auto mt-5 max-w-screen-2xl mb-48'>
 
             <ul className="w-full">
                 {data.map((article, index) => (

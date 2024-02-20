@@ -22,6 +22,25 @@ export const getCategories = async () => {
       }
 };
 
+export const getCategoryByName = async (name: string) => {
+  await dbConnect();
+
+  try {
+    const res = await Category.findOne({ name })
+      .populate({
+        path: 'sub',
+        model: 'Subcategory',
+        select: 'name',
+      })
+      .exec();
+
+    return JSON.parse(JSON.stringify(res));
+  } catch(err) {
+    console.error("Error fetching categories with subcategories:", err);
+    throw err;
+  }
+}
+
 export const createSub = async () => {
   try {
     const newSub = await Subcategory.create({
