@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { useInView } from 'react-intersection-observer';
-import Image from 'next/image';
 import { IGetArticlesResponse, TArticle } from '@/types';
 import { getArticles } from '@/actions/articlesActions';
 import MainCard from './cards/MainCard';
@@ -28,10 +27,13 @@ const InfinitScroll = ({ totalPages }: IGetArticlesResponse) => {
         if (inView) {
             getArticles({page, limit, category, subcategory, query })
                 .then((res) => {
-                    console.log(res, "xx")
                     // Update data and increment page for the next fetch
                     setData((prevData) => [...prevData, ...res.data]);
                     page++;
+                })
+                .catch((error) => {
+                    console.error("Error fetching articles:", error);
+                    // Handle the error (e.g., show an error message to the user)
                 });
         }
     }, [inView]);
@@ -54,7 +56,7 @@ const InfinitScroll = ({ totalPages }: IGetArticlesResponse) => {
             </ul>
 
             {page - 1 < totalPages && (
-                <div className='w-full h-24 bg-red-800 pb-28 ' ref={ref}>
+                <div className='w-full h-24 pb-28 ' ref={ref}>
                    
                 </div>
             )}
