@@ -19,6 +19,7 @@ export interface TCategory {
 export interface TAuthor {
   _id?: string;
   name: string;
+  image: string;
   articles: string[]; 
 }
 
