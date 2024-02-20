@@ -15,6 +15,13 @@ export interface TCategory {
   sub: TSubcategory[]; 
 }
 
+// Author
+export interface TAuthor {
+  _id?: string;
+  name: string;
+  articles: string[]; 
+}
+
 // Article
 export interface TImage {
   url: string;
@@ -24,6 +31,7 @@ export interface TImage {
 export interface TArticle {
   _id?: string;
   title: string;
+  slug: string;
   content: string[];
   category: {
     id: string;
@@ -33,7 +41,7 @@ export interface TArticle {
     id: string;
     slug: string;
   };
-  author: string;
+  author:  TAuthor ;
   images: TImage[];
   createdAt: Date; 
 }

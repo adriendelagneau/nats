@@ -1,11 +1,11 @@
-import { getArticleById } from '@/actions/articlesActions'
+import { getArticleBySlug } from '@/actions/articlesActions'
 import SingleGutter from '@/components/SingleGutter'
 import SingleCard from '@/components/cards/SingleCard'
 import React from 'react'
 
-const SinglePage = async ({ params: { id } }: { params: { id: string } }) => {
+const SinglePage = async ({ params: { slug } }: { params: { slug: string } }) => {
 
-  const article = await getArticleById(id)
+  const article = await getArticleBySlug(slug)
 
 
   return (

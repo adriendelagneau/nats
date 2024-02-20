@@ -9,16 +9,17 @@ const imageSchema = new Schema({
 
 const articleSchema = new Schema({
   title: { type: String, required: true },
+  slug: {type: String, required: true},
   content: [{ type: String, required: true }],
   category: {
-    id: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
+    id: { type: Schema.Types.ObjectId, ref: "Category", required: true },
     slug: { type: String, required: true },
   },
   subcategory: {
-    id: { type: mongoose.Schema.Types.ObjectId, ref: "Subcategory" },
+    id: { type: Schema.Types.ObjectId, ref: "Subcategory" },
     slug: { type: String },
   },
-  author: { type: String, required: true },
+  author: { type: Schema.Types.ObjectId, ref: "Author" },
   images: [imageSchema],
 }, { timestamps: true });
 
