@@ -27,10 +27,8 @@ const SingleCard = ({ article }: { article: TArticle }) => {
       <ul>
         {article.content.map((c, i) => (
           <li key={i} className='my-9'>
-            <h3 className='my-3 text-2xl'>{c.title}</h3>
-            {c.text.map((t, y) => (
-              <p className='text-lg first-letter:text-3xl first-letter:pr-1' key={y}>{t}</p>    
-            ))}
+           
+              <p className='text-lg first-letter:text-3xl first-letter:pr-1' key={i}>{c}</p>    
           </li>
         ))}
       </ul>
