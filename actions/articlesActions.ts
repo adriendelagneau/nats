@@ -20,10 +20,10 @@ export const getArticles = async ({
     // Build the filter object based on the provided parameters
     const filter: any = {};
     if (category) {
-      filter.category = category;
+      filter['category.slug'] = category; // Update to use category.slug
     }
     if (subcategory) {
-      filter.subcategory = subcategory;
+      filter['subcategory.slug'] = subcategory; // Update to use subcategory.slug
     }
 
     // Build the search criteria for name, category, and description
@@ -46,7 +46,23 @@ export const getArticles = async ({
 
     // Build the sort object based on the provided sort parameter or use default sorting options
     let sortOptions: any = {};
-    // Add your sorting logic here
+    if (sort) {
+      // Implement your sorting logic based on the sort parameter
+      switch (sort) {
+        case 'createdAt':
+          sortOptions.createdAt = 1; // Ascending order
+          break;
+        case '-createdAt':
+          sortOptions.createdAt = -1; // Descending order
+          break;
+        // Add more sorting options as needed
+        default:
+          break;
+      }
+    } else {
+      // Use default sorting (e.g., based on createdAt)
+      sortOptions.createdAt = -1; // Default: Descending order
+    }
 
     const result = await Article.find(combinedFilter)
       .skip(skipCount)
@@ -68,7 +84,7 @@ export const getArticles = async ({
 };
 
 
-export const getArticleById = async (id: string): Promise<TArticle | null> => {
+export const getArticleById = async (id: string): Promise<TArticle> => {
   await dbConnect();
 
   try {
@@ -97,7 +113,36 @@ export const getArticleById = async (id: string): Promise<TArticle | null> => {
 
 
 
+export const createArticle = async () => {
 
+  try {
+    
+    const newOne = await Article.create({
+      title: "Sample Article",
+      content: ["Lorem ipsum dolor sit amet. Consectetur adipiscing elit.","Lorem ipsum dolor sit amet. Consectetur adipiscing elit.","Lorem ipsum dolor sit amet. Consectetur adipiscing elit.","Lorem ipsum dolor sit amet. Consectetur adipiscing elit."],
+      category: {
+        id: "65cf414ba41d45a37ae6ddcb",
+        slug: "sport", // You need to replace this with the actual slug
+      },
+      subcategory: {
+        id: "65cf50d6a41d45a37ae6ddfe",
+        slug: "football", // You need to replace this with the actual slug
+      },
+      author: "John Doe",
+      images: [
+        { url: "https://res.cloudinary.com/dos8mey8r/image/upload/v1708374346/LeCanard/cute-arctic-mammal-walking-frozen-ice-generated-by-ai_e0sk65.jpg", legend: "Image 1" },
+        { url: "https://res.cloudinary.com/dos8mey8r/image/upload/v1708205392/LeCanard/cute-arctic-mammal-walking-frozen-ice-generated-by-ai_2_faukim.jpg", legend: "Image 2" },
+      ],
+      createdAt: new Date(),
+    })
+    return true
+  } catch (err) {
+    console.log(err);
+    throw err; // Rethrow the error to handle it at a higher level
+}
+
+  
+}
 
 
 

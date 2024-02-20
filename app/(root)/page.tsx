@@ -1,4 +1,4 @@
-import { getArticles } from "@/actions/articlesActions";
+import { createArticle, getArticles } from "@/actions/articlesActions";
 import MainGutter from "@/components/MainGutter";
 import MainCard from "@/components/cards/MainCard";
 import SliderContainer from "@/components/slider/SliderContainer";
@@ -8,7 +8,8 @@ import SliderContainer from "@/components/slider/SliderContainer";
 export default async function Home() {
 
  
-  const articles  = await getArticles({limit: 3})
+ // await createArticle()
+  const articles = await getArticles({ limit: 3 })
 
   return (
     <main className="w-full   mx-auto mt-24">

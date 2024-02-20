@@ -16,29 +16,28 @@ export interface TCategory {
 }
 
 // Article
-export interface TContent {
-  title: string;
-  text: string;
-}
-
 export interface TImage {
   url: string;
   legend: string;
 }
 
-export interface TArticle  {
+export interface TArticle {
   _id?: string;
   title: string;
-  content: TContent[];
-  category: TCategory
-  subcategory?: TSubcategory
+  content: string[];
+  category: {
+    id: string;
+    slug: string;
+  };
+  subcategory?: {
+    id: string;
+    slug: string;
+  };
   author: string;
   images: TImage[];
   createdAt: Date; 
 }
 
-
-///
 export interface GetArticlesParams {
   page?: number;
   limit?: number;
@@ -48,14 +47,18 @@ export interface GetArticlesParams {
   sort?: string;
 }
 
-
 export interface IGetArticlesResponse {
-  data?: TArticle[]; // The array of articles
+  data?: TArticle[]; 
   totalPages: number;
 }
 
 
-// Define Custom session user interface 
+
+
+
+
+
+// SESSION
 export interface TCustomSessionUser {
     _id: string;
     provider: string;
@@ -70,14 +73,6 @@ export type TLoginSchema = z.infer<typeof loginSchema>;
 export interface TokenPayload {
     user: TSignUpSchema;
 }
-  
-
-// export interface VerifyPageProps {
-//     searchParams: {
-//       token?: string;
-//     };
-// }
-  
 
 ///////////////
 

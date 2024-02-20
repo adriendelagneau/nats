@@ -4,7 +4,7 @@ import React from 'react'
 
 
 const MainGutterCard = ({ article }: {article: TArticle}) => {
-  console.log(article, "tt")
+ 
  
   return (
     <div className='py-6'>

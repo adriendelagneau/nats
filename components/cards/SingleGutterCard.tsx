@@ -1,8 +1,14 @@
+import { TArticle } from '@/types'
+import Image from 'next/image'
 import React from 'react'
 
-const SingleGutterCard = () => {
+const SingleGutterCard = ({ article }: { article: TArticle }) => {
+  
+  console.log(article)
   return (
-    <div>SingleGutterCard</div>
+    <div>
+     
+    </div>
   )
 }
 

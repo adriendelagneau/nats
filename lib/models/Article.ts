@@ -5,23 +5,26 @@ const imageSchema = new Schema({
   legend: { type: String, required: true },
 });
 
-const contentSchema = new Schema({
-  title: { type: String, required: true },
-  text: { type: String, required: true },
-});
+
 
 const articleSchema = new Schema({
   title: { type: String, required: true },
-  content: [contentSchema],
+  content: [{ type: String, required: true }],
   category: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Category",
-    required: true,
+    id: { type: mongoose.Schema.Types.ObjectId, ref: "Category", required: true },
+    slug: { type: String, required: true },
   },
-  subcategory: { type: mongoose.Schema.Types.ObjectId, ref: "Subcategory" },
+  subcategory: {
+    id: { type: mongoose.Schema.Types.ObjectId, ref: "Subcategory" },
+    slug: { type: String },
+  },
   author: { type: String, required: true },
   images: [imageSchema],
-});
+}, { timestamps: true });
 
 export default mongoose.models.Article ||
   mongoose.model("Article", articleSchema);
+
+
+  
+
