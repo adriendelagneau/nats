@@ -18,7 +18,12 @@ const ArticlesPage = async ({ searchParams }: {searchParams: GetArticlesParams})
   return (
     <div className='pt-48'>
 
-      <h1 className='text-6xl'>{searchParams.category}</h1>
+      <h1 className='text-6xl'>
+        <Link href={`?category=${searchParams.category}`}>
+        {searchParams.category}
+        
+        </Link>
+      </h1>
       <ul className='flex gap-3 my-6'>
       {categories.sub.map((subcategory: TSubcategory, i: number) => (
         <li key={i} className={`capitalize text-lg ${searchParams.subcategory === subcategory.name && "underline"}`}>
