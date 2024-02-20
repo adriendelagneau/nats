@@ -57,7 +57,7 @@ export interface GetArticlesParams {
 }
 
 export interface IGetArticlesResponse {
-  data?: TArticle[]; 
+  data: TArticle[]; 
   totalPages: number;
 }
 

@@ -1,18 +1,19 @@
 import { getArticles } from '@/actions/articlesActions'
-import { GetArticlesParams } from '@/types'
+import Ccollection from '@/components/Ccollection'
+import InfinitScroll from '@/components/InfiniteScroll'
+import { GetArticlesParams, IGetArticlesResponse } from '@/types'
 import React from 'react'
 
 const ArticlesPage = async ({ searchParams }: {searchParams: GetArticlesParams}) => {
 
   const res = await getArticles(searchParams)
 
+  console.log(res)
+
   return (
     <div>
-      <ul className='mt-48'>
-        {res?.data?.map((a, i) => (
-          <li key={i}>{a.title}</li>
-        ))}
-      </ul>
+      <Ccollection {...res} />
+      <InfinitScroll {...res} />
     </div>
   )
 }

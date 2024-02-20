@@ -10,7 +10,7 @@ import { GetArticlesParams, IGetArticlesResponse, TArticle } from "@/types";
 
 export const getArticles = async ({
   page = 1,
-  limit = 10, // You can set a default limit if needed
+  limit = 6,
   query,
   category,
   subcategory,
@@ -48,23 +48,23 @@ export const getArticles = async ({
 
     // Build the sort object based on the provided sort parameter or use default sorting options
     let sortOptions: any = {};
-    if (sort) {
-      // Implement your sorting logic based on the sort parameter
-      switch (sort) {
-        case 'createdAt':
-          sortOptions.createdAt = 1; // Ascending order
-          break;
-        case '-createdAt':
-          sortOptions.createdAt = -1; // Descending order
-          break;
-        // Add more sorting options as needed
-        default:
-          break;
-      }
-    } else {
-      // Use default sorting (e.g., based on createdAt)
-      sortOptions.createdAt = -1; // Default: Descending order
-    }
+    // if (sort) {
+    //   // Implement your sorting logic based on the sort parameter
+    //   switch (sort) {
+    //     case 'createdAt':
+    //       sortOptions.createdAt = 1; // Ascending order
+    //       break;
+    //     case '-createdAt':
+    //       sortOptions.createdAt = -1; // Descending order
+    //       break;
+    //     // Add more sorting options as needed
+    //     default:
+    //       break;
+    //   }
+    // } else {
+    //   // Use default sorting (e.g., based on createdAt)
+    //   sortOptions.createdAt = -1; // Default: Descending order
+    // }
 
     const result = await Article.find(combinedFilter)
       .skip(skipCount)
