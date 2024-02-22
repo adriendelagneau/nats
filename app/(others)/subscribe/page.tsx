@@ -17,7 +17,7 @@ const page = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(`${process.env.NEXTAUTH_URL}/api/get-products`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/get-products`);
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
