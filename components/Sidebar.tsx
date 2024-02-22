@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 import { TCategory } from '@/types';
-import { registerVisitor } from '@/actions/userActions';
 
 interface SidebarProps {
     isMenuOpen: boolean;
