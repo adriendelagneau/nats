@@ -1,13 +1,15 @@
 "use client"
 
+import { CardSubscriptionProps } from '@/types'
 import getStripe from '@/utils/get-stripe'
 import React from 'react'
+import { toast } from 'sonner'
 
-const CheckoutButton = ({ plan, userEmail }) => {
+const CheckoutButton = ({ data, userEmail }: CardSubscriptionProps) => {
 
   
-  const pay = async (e) => {
-    let price = plan.id
+  const pay = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    let price = data.id
     
     if (userEmail !== undefined) {
       e.preventDefault();
@@ -25,13 +27,13 @@ const CheckoutButton = ({ plan, userEmail }) => {
             
               // Redirect to Checkout.
               const stripe = await getStripe();
-            const data = await res.json()
+            const datax = await res.json()
            // console.log(data.session.id)
            const stripeResponse = await stripe?.redirectToCheckout({
             // Make the id field from the Checkout Session creation API response
             // available to this file, so you can provide it as parameter here
             // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
-            sessionId: data.session.id,
+            sessionId: datax.session.id,
           });
         } catch (err) {
             console.log(err)

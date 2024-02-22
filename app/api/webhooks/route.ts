@@ -12,9 +12,8 @@ const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET
 
 const updateUserSubscription = async (session) => {
 
-    const customerEmail = session.metadata.userEmail
+    const customerEmail = session.customer_email
     const subscriptionNumber = session.id
-    console.log(subscriptionNumber,"sub")
 
     try {
         updateUserStatus(customerEmail, subscriptionNumber)

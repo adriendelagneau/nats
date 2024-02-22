@@ -61,9 +61,17 @@ export interface IGetArticlesResponse {
   totalPages: number;
 }
 
+/////
 
 
-
+export interface CardSubscriptionProps {
+  data: {
+      unit_amount: number;
+      id: number
+    // Add other properties based on the actual structure of data
+  };
+  userEmail: string; // Assuming userEmail is a string, update accordingly
+}
 
 
 

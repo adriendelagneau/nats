@@ -29,13 +29,20 @@ const page = () => {
     }
   };
 
+
+
+  
   return (
     <div className='min-h-screen pt-48'>
       {
-        products.map((s, i) => (
+        products.map((s: any, i) => (
           <CardSubscription
             key={i}
-            data={s}
+            // data={s}
+            data={{
+              id: s.id,
+              unit_amount: s.unit_amount,
+            }}
             userEmail={userEmail}
           />
         ))

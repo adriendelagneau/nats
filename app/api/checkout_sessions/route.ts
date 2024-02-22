@@ -5,13 +5,10 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 export const POST = async (req: NextRequest) => {
 
   const origin = req.headers.get('origin')
-  
  const data = await req.json()
  
  const userEmail = data.userEmail
  const price = data.price
- 
- console.log(userEmail,price)
 
   try {
           // Create Checkout Sessions from body params.
@@ -27,9 +24,6 @@ export const POST = async (req: NextRequest) => {
             success_url: `${origin}/`,
             cancel_url: `${origin}/`,
             customer_email: userEmail,
-            metadata: {
-              userEmail: userEmail,
-          }
           });
     console.log(session, "sesssion")
       return NextResponse.json({session})

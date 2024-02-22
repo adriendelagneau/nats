@@ -1,8 +1,10 @@
 import React from 'react'
 import CheckoutButton from './buttons/CheckoutButton'
+import { CardSubscriptionProps } from '@/types'
 
 
-const CardSubscription = ({ data, userEmail }) => {
+
+const CardSubscription: React.FC<CardSubscriptionProps>  = ({ data, userEmail }) => {
 
     return (
         <div className=''>
@@ -20,7 +22,7 @@ const CardSubscription = ({ data, userEmail }) => {
 
                     
 
-                    <CheckoutButton plan={data} userEmail={ userEmail} />
+                    <CheckoutButton data={data} userEmail={ userEmail} />
                      </div>
             </div></div>
     )
