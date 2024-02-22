@@ -1,5 +1,5 @@
 import { getArticles } from '@/actions/articlesActions'
-import { getCategories, getCategoryByName } from '@/actions/categoryActions'
+import {  getCategoryByName } from '@/actions/categoryActions'
 import Ccollection from '@/components/Ccollection'
 import InfinitScroll from '@/components/InfiniteScroll'
 import { GetArticlesParams, IGetArticlesResponse, TSubcategory } from '@/types'
@@ -16,17 +16,17 @@ const ArticlesPage = async ({ searchParams }: {searchParams: GetArticlesParams})
 
 
   return (
-    <div className='pt-48'>
+    <div className='pt-24'>
 
-      <h1 className='text-6xl'>
+      <h1 className='text-6xl w-full text-center capitalize'>
         <Link href={`?category=${searchParams.category}`}>
         {searchParams.category}
         
         </Link>
       </h1>
-      <ul className='flex gap-3 my-6'>
+      <ul className='flex gap-3 mt-6 w-full justify-center mb-24'>
       {categories.sub.map((subcategory: TSubcategory, i: number) => (
-        <li key={i} className={`capitalize text-lg ${searchParams.subcategory === subcategory.name && "underline"}`}>
+        <li key={i} className={`capitalize text-xl ${searchParams.subcategory === subcategory.name && "underline"}`}>
           <Link href={`?category=${searchParams.category}&subcategory=${subcategory.name}`}>
           {subcategory.name}
           </Link>

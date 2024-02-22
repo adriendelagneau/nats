@@ -10,10 +10,13 @@ import Sidebar from "./Sidebar";
 import { TCategory } from "@/types";
 
 
+
 const Header: React.FC<{ cat: TCategory[] }> = ({ cat }) => {
 
   const [showTitle, setShowTitle] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+ 
 
   useEffect(() => {
     const handleScroll = () => {

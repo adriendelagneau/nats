@@ -1,4 +1,5 @@
 import {  createArticle, createAuthor, getArticles } from "@/actions/articlesActions";
+import { registerVisitor } from "@/actions/userActions";
 import MainGutter from "@/components/MainGutter";
 import MainCard from "@/components/cards/MainCard";
 import SliderContainer from "@/components/slider/SliderContainer";
@@ -8,7 +9,8 @@ import SliderContainer from "@/components/slider/SliderContainer";
 export default async function Home() {
 
  //await createAuthor()
- // await createArticle()
+  // await createArticle()
+ 
   const articles = await getArticles({ limit: 3 })
 
   return (

@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@stripe/stripe-js": "^3.0.4",
     "@studio-freight/react-lenis": "^0.0.44",
     "@types/jsonwebtoken": "^9.0.5",
+    "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "gsap": "^3.12.5",
     "install": "^0.13.0",
@@ -28,6 +30,7 @@
     "react-intersection-observer": "^9.8.0",
     "resend": "^3.2.0",
     "sonner": "^1.4.0",
+    "stripe": "^14.17.0",
     "timeago.js": "^4.0.2",
     "zod": "^3.22.4",
     "zustand": "^4.5.0"

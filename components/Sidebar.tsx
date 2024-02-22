@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
 
 import { TCategory } from '@/types';
+import { registerVisitor } from '@/actions/userActions';
 
 interface SidebarProps {
     isMenuOpen: boolean;
@@ -30,6 +31,10 @@ const Sidebar: React.FC<SidebarProps> = ({ isMenuOpen, setIsMenuOpen, cat }) => 
             document.body.style.overflow = 'auto';
         };
     }, [isMenuOpen]);
+
+   
+    
+
 
     return (
         <div className={`w-full h-[calc(100vh-70px)] overflow-y-hidden fixed ${isMenuOpen ? 'z-50' : '-z-50'}`}>

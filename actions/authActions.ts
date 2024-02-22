@@ -42,8 +42,7 @@ export const registerWithCredential = async (data: TSignUpSchema) => {
         const hashedPassword = await bcrypt.hash(validationResult.data.password, 10);
         const token = generateToken({ user: { ...validationResult.data, password: hashedPassword } });
 
-        const resend = new Resend(process.env.RESEND_API_KEY)
-
+        const resend = new Resend('re_K8wxihkq_NZ4CUyMECA3pgjKJ32Cv25Aq');
         let message = "hello wold"
         let name = validationResult.data.name
         let email = validationResult.data.email
@@ -73,7 +72,6 @@ export const verifyEmail = async (token: string) => {
 
     try {
         const { user } = verifyToken(token)
-        console.log(user, "ve")
      
         const userExist = await User.findOne({ email: user.email })
         
